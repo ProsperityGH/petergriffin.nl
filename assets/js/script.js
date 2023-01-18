@@ -1,4 +1,4 @@
-var audio = new Audio("../assets/mp3/laugh.mp3");
+var audio = new Audio("./assets/mp3/laugh.mp3");
 var image = document.getElementById("peter");
 
 image.addEventListener("click", function() {
