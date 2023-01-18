@@ -1,18 +1,24 @@
-// document.getElementById("peter").addEventListener("click", function(){
-//     document.getElementById("audio").play();
-// });
+var audio = new Audio("../assets/mp3/laugh.mp3");
+var image = document.getElementById("peter");
 
-(function( d ) {
-    'use strict';
-     var count = 0,
-         audio = d.getElementById( 'audios' ).getElementsByTagName( 'audio' );
-     d.getElementById( 'peter' ).addEventListener( 'click',
-        function() {
-            audio[count].play();
-            count ++;
-            console.log(count);
-       if ( count > 9 ) {
-            count = 0;
-           }          
-          }, false );
- }( document ));
+image.addEventListener("click", function() {
+    audio.play();
+});
+
+var clickCounter = 0;
+
+image.addEventListener("click", function() {
+    clickCounter++;
+});
+
+setInterval(function() {
+    clickCounter = 0;
+}, 1000);
+
+image.addEventListener("click", function() {
+    if (clickCounter > 1) {
+        for (var i = 0; i < clickCounter; i++) {
+            audio.cloneNode().play();
+        }
+    }
+});
